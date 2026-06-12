@@ -32,7 +32,7 @@ class PerceptualLoss(nn.Module):
         target.mul_(2.0).add_(-1.0)
 
         loss = 0.0
-        x, y = pred, target.detach()
+        x, y = pred, target
         for block in self.blocks:
             x = block(x)
             with torch.no_grad():
